@@ -46,5 +46,5 @@ L'architecture du code et le design de l'interface répondent aux exigences d'un
 ![Structure du Projet](capReadme.png)
 
 ## Links
-[Github Repo]() <br>
-[Github Page]()
+[Github Repo](https://github.com/abbas001900/stockManager.git) <br>
+[Github Page](https://abbas001900.github.io/stockManager/)
