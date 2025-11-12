@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../design/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div id="dashboard">
+        <input type="checkbox" id="sidebarToggle" hidden>
+        <label for="sidebarToggle" class="sidebarToggle"><i class="fa-solid fa-bars"></i></label>
+        <label for="sidebarToggle" id="sidebar-overlay-label"></label>
+        <aside id="sidebar">
+            <header id="sidebarHeader">
+                <h1><i class="fa-solid sidebarHeaderIcon fa-chart-line"></i> Dashboard</h1>
+            </header>
+            <nav id="sidebarNav">
+                <ul>
+                    <li class="sidebarNavLi">
+                        <a href="index.html" class="sidebarNavLinks"><i class="fa-solid fa-gauge-high"></i> Tableau
+                            de Bord</a>
+                    </li>
+                    <li class="sidebarNavLi">
+                        <a href="analytics.html" class="sidebarNavLinks"><i class="fa-solid fa-chart-line"></i>
+                            Analytics</a>
+                    </li>
+                    <li class="sidebarNavLi">
+                        <a href="commandes.html" class="sidebarNavLinks"><i class="fa-solid fa-cart-shopping"></i>
+                            Commandes</a>
+                    </li>
+                    <li class="sidebarNavLi" style="background-color: var(--bleu-side-bar-icon);">
+                        <a href="#parametres" class="sidebarNavLinks"><i class="fa-solid fa-gears"></i> Paramètres</a>
+                    </li>
+                    <li class="sidebarNavLi">
+                        <a href="rapports.html" class="sidebarNavLinks"><i class="fa-solid fa-chart-bar"></i>
+                            Rapports</a>
+                    </li>
+                    <li class="sidebarNavLi">
+                        <a href="notifications.html" class="sidebarNavLinks"><i class="fa-solid fa-bell"></i>
+                            Notifications</a>
+                    </li>
+                </ul>
+            </nav>
+            <footer id="sidebarFooter">
+                <div class="sidebarTitle">
+                    <i class="fa-solid sidebarTitleIcon fa-circle-user"></i>
+                    <div class="sidebarTitleText">
+                        <h4>Administrateur</h4>
+                        <p>Gestionnaire</p>
+                    </div>
+                </div>
+                <a href="#profilCard" class="sidebarFooterButton sidebarFooterButtonProfil text-center"><i
+                        class="fa-solid fa-circle-user"></i> Mon Profil</a>
+                <a href="../index.html" class="sidebarFooterButton sidebarFooterButtonLogout text-center"><i
+                        class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
+            </footer>
+        </aside>
+        <div id="mainContent">
+            <header id="mainContentHeader">
+                <h1>Gestion de Stocok - Produits Electroniques</h1>
+                <nav id="mainContentHeaderNav">
+                    <ul>
+                        <li><a href="#" class="mainContentHeaderNavLinks mainContentHeaderNavLinkNotification"><i
+                                    class="fa-solid fa-bell"></i></a></li>
+                        <li><a href="#" class="mainContentHeaderNavLinks mainContentHeaderNavLinkProfile"><i
+                                    class="fa-solid fa-circle-user"></i> Administrateur</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <!-- Page Parametre -->
+                <!-- ----------------------------------------------------------------------- -->
+                <section id="parametres" class="dashboardMainContents">
+                    <header class="dashboardHeaders">
+                        <div id="notificationHeaderEntete">
+                            <h1><i class="fa-solid fa-gears"></i> Paramètres & Configuration</h1>
+                        </div>
+                        <p class="textGrisé">Configuration du système et préférences utilisateur</p>
+                    </header>
+                    <div id="ParametreGeneraux" class="cardParam">
+                        <h4><i class="fa-solid fa-sliders"></i> Paramètres Généraux</h4>
+                        <div class="settings">
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Notifications</h5>
+                                    <p>Recevoir des notifications par email</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <input type="checkbox" class="slidingButtonButton" id="slidingButtonButton1">
+                                    <label for="slidingButtonButton1" class="slidingButtonWork"></label>
+                                </div>
+                            </div>
+
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Notifications</h5>
+                                    <p>Recevoir des notifications par email</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <input type="checkbox" class="slidingButtonButton" id="slidingButtonButton2">
+                                    <label for="slidingButtonButton2" class="slidingButtonWork"></label>
+                                </div>
+                            </div>
+
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Notifications</h5>
+                                    <p>Recevoir des notifications par email</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <input type="checkbox" class="slidingButtonButton" id="slidingButtonButton3">
+                                    <label for="slidingButtonButton3" class="slidingButtonWork"></label>
+                                </div>
+                            </div>
+
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Notifications</h5>
+                                    <p>Recevoir des notifications par email</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <select name="langue" id="langue">
+                                        <option value="francais">Français</option>
+                                        <option value="anglais">Anglais</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="stockParam" class="cardParam">
+                        <h4><i class="fa-solid fa-boxes-stacked"></i> Gestion de Stock</h4>
+                        <div class="settings">
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Seuil d'alerte</h5>
+                                    <p>Nombre minimum d'articles avant alerte</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <input type="number" name="seuilAlert" id="seuilAlert">
+                                </div>
+                            </div>
+
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Auto-commande</h5>
+                                    <p>Commander automatiquement en cas de stock faible</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <input type="checkbox" class="slidingButtonButton" id="slidingButtonButton">
+                                    <label for="slidingButtonButton" class="slidingButtonWork"></label>
+                                </div>
+                            </div>
+
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Devise</h5>
+                                    <p>Devise d'affichage</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <select name="devise" id="devise">
+                                        <option value="euro">Euro (€)</option>
+                                        <option value="xof">FCFA (XOF)</option>
+                                        <option value="dollar">Dollar ($)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="securityParam" class="cardParam">
+                        <h4><i class="fa-solid fa-shield"></i> Sécurité</h4>
+                        <div class="settings">
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Authentification à deux facteurs</h5>
+                                    <p>Activer la 2FA pour plus de sécurité</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <a href="#"
+                                        style="background-color: #e4e4e4; padding: 0.5rem 1rem; border-radius: 0.25rem; color: black; text-decoration: none;">Activer</a>
+                                </div>
+                            </div>
+
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Changer le mot de passe</h5>
+                                    <p>Modifier le mot de passe actuel</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <input type="checkbox" class="slidingButtonButton" id="slidingButtonButton4">
+                                    <label for="slidingButtonButton4" class="slidingButtonWork"></label>
+                                </div>
+                            </div>
+
+                            <div class="setting">
+                                <div class="settingText">
+                                    <h5>Sessions actives</h5>
+                                    <p>Gérer les sessions connectées</p>
+                                </div>
+                                <div class="slidingButton">
+                                    <a href="#"
+                                        style="padding: 0.5rem 1rem; border-radius: 0.25rem; color: var(--couleur-text-blanc); background-color: var(--bleu-side-bar-icon); text-decoration: none;">Voir
+                                        (3)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="systemParam" class="cardParam">
+                        <h4><i class="fa-solid fa-database"></i> Système</h4>
+                        <div class="settings">
+                            <a href="" class="systemSettings systemSettingsBlue"><i class="fa-solid fa-floppy-disk"></i>
+                                Sauvegarde de la configuration</a>
+                            <a href="" class="systemSettings systemSettingsWhite"><i class="fa-solid fa-download"></i>
+                                Exporter les paramètres</a>
+                            <a href="" class="systemSettings systemSettingsGrey"><i
+                                    class="fa-solid fa-arrow-rotate-left"></i> Réinitialiser par défaut</a>
+                            <a href="" class="systemSettings systemSettingsGrey"><i class="fa-solid fa-trash"></i>
+                                Effacer toutes les données</a>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </main>
+            <footer></footer>
+        </div>
+        <section id="profilCard" href="#">
+            <form action="#">
+                <a href="#" id="close">X</a>
+                <header id="profilCardFormHeader">
+                    <h2><i class="fa-solid fa-circle-user"></i> Mon Profil</h2>
+                </header>
+                <fieldset id="profilCardFormFieldset">
+                    <i class="fa-solid faProfilIcon fa-circle-user"></i>
+                    <a href="#">Changer la photo</a>
+                </fieldset>
+                <fieldset>
+                    <legend>Nom :</legend>
+                    <input type="text" placeholder="Administrateur">
+                </fieldset>
+                <fieldset>
+                    <legend>Prénom :</legend>
+                    <input type="text" placeholder="Jean">
+                </fieldset>
+                <fieldset>
+                    <legend>Email :</legend>
+                    <input type="email" placeholder="admin@dashboard.com">
+                </fieldset>
+                <fieldset>
+                    <legend>Téléphone :</legend>
+                    <input type="text" placeholder="+33 6 12 34 56 78">
+                </fieldset>
+                <fieldset>
+                    <legend>Rôle :</legend>
+                    <input type="text" placeholder="Gestionnaire">
+                </fieldset>
+                <fieldset>
+                    <legend>Dernière connexion :</legend>
+                    <input type="text" placeholder="15 Janvier 2024 à 14:30">
+                </fieldset>
+                <footer>
+                    <button class="profilFormButton" type="submit" style="color: grey; background-color: #fff;">Fermer</button>
+                    <button class="profilFormButton" type="submit" style="color: var(--couleur-text-blanc); background-color: var(--bleu-side-bar-icon);">Sauvegarder</button>
+                </footer>
+            </form>
+        </section>
+    </div>
+</body>
+
+</html>

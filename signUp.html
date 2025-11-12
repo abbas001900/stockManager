@@ -9,35 +9,38 @@
 </head>
 
 <body>
-    <main>
-        <form action="#" id="loginForm">
-            <header>
-                <h1>S'inscrire à StockManager Dashboard</h1>
-            </header>
-            <section>
-                <input type="text" name="nom" id="nom" placeholder="Nom">
-                <label for="nom"></label>
-                <input type="text" name="prenom" placeholder="Prénom">
-                <label for="prenom"></label>
-                <input type="email" name="email" id="email"
-                        placeholder="Email"><label for="identifiant"></label>
-                <input type="password" name="password" id="password"
-                        placeholder="Mot de passe"><label for="password"></label>
-                        <label for="passwordConfirm"></label>
-                <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez le mot de passe">
+    <div id="loginCard">
+        <main>
+            <form action="./pages/index.html" id="loginForm">
+                <header>
+                    <h1>S'inscrire à StockManager Dashboard</h1>
+                </header>
+                <section>
+                    <input type="text" name="nom" id="nom" placeholder="Nom">
+                    <label for="nom"></label>
+                    <input type="text" name="prenom" placeholder="Prénom">
+                    <label for="prenom"></label>
+                    <input type="email" name="email" id="email" placeholder="Email"><label for="identifiant"></label>
+                    <input type="password" name="password" id="password" placeholder="Mot de passe"><label
+                        for="password"></label>
+                    <label for="passwordConfirm"></label>
+                    <input type="password" name="passwordConfirm" id="passwordConfirm"
+                        placeholder="Confirmez le mot de passe">
+                </section>
+                <footer>
+                    <button type="submit">S'inscrire</button>
+                    <p>Vous avez déjà un compte ? <a href="index.html">Se Connecter</a></p>
+                </footer>
+            </form>
+            <section id="card">
+                <div id="logoDiv"><span id="logo">SM</span></div>
+                <h1>Bienvenue dans StockManager</h1>
+                <p>Gérer vos appareils électroniques vos entrées et sorties de stock facilement avec une interface
+                    claire et
+                    rapide</p>
             </section>
-            <footer>
-                <button type="submit">S'inscrire</button>
-                <p>Vous avez déjà un compte ? <a href="index.html">Se Connecter</a></p>
-            </footer>
-        </form>
-        <section id="card">
-            <div id="logoDiv"><span id="logo">SM</span></div>
-            <h1>Bienvenue dans StockManager</h1>
-            <p>Gérer vos appareils électroniques vos entrées et sorties de stock facilement avec une interface claire et
-                rapide</p>
-        </section>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>

@@ -1,38 +1,70 @@
+/*======================================================
+    1. IMPORTS & PALETTE DE COULEURS
+======================================================*/
+
 /* Style globaux */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* border: solid; */
-}
+@import url(bases.css);
+@import url(animations.css);
 
 /* Palette de couleurs  */
 :root {
+    /* Couleurs primaires/neutres */
     --bleu-principal: #1e4976;
     --bleu-fonce-principal: #0a2540;
+    --bleu-side-bar-icon: #3460DA;
     --gris-secondaire: #64748b;
-    --verts-succes: #10b981;
-    --orange-avertissement: #f59e0b;
+
+    /* Couleurs de statut */
+    --verts-succes: #4CA67D;
+    --orange-avertissement: #D68C33;
     --rouge-erreur: #ef4444;
-    --fond-principal: #f8fafc;
+
+    /* Fonds & Bordures */
+    --fond-principal: #f2f5f9;
     --fond-sidebar: #1e293b;
     --fond-blanc: #ffffff;
+    --card-backgrounds: #F7F9FB;
+    --couleur-bordure: #e2e8f0;
+
+    /* Texte */
     --couleur-text-principale: #1e293b;
     --couleur-text-secondaire: #64748b;
     --couleur-text-blanc: #ffffff;
-    --couleur-bordure: #e2e8f0;
+
+    /* Sidebar info backgrounds (Spécifiques) */
+    --sidebar-info-bg-fst: #313C4E;
+    --sidebar-info-bg-snd: #3E4757;
+    --sidebar-info-bg-thd: #4D3746;
+
+    /* Ombres */
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-/* forme et comment est la page */
+/* Styles de base */
 body {
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/*======================================================
+    2. STYLES DE LA PAGE DE CONNEXION (LOGIN)
+======================================================*/
+
+#loginCard {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    width: 100%;
     background: linear-gradient(135deg, var(--bleu-fonce-principal), var(--bleu-principal));
+    height: 100%;
 }
 
-main {
+#loginCard main {
     background: var(--fond-principal);
     display: flex;
     justify-content: center;
@@ -44,9 +76,7 @@ main {
     overflow: hidden;
 }
 
-/* Style des differents element de la carte*/
-
-/* style de la section */
+/* Composants de la carte */
 #logoDiv {
     padding: 1rem;
     border-radius: 50%;
@@ -70,13 +100,13 @@ main {
     gap: 1rem;
     background: linear-gradient(120deg, var(--bleu-fonce-principal), var(--bleu-principal));
     color: var(--couleur-text-blanc);
+    /* Correction de la variable manquante */
 }
 
-/* Style du formulaire */
-
+/* Formulaire de connexion */
 #loginForm {
-    padding: 2rem 1rem;   
-    flex: 1.25;
+    padding: 2rem 1rem;
+    flex: 1.3;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -103,9 +133,17 @@ main {
 }
 
 #loginForm section input {
-    padding: 0.75rem;
+    font-size: 0.875rem;
+    padding: 0.7rem;
     border-radius: 0.5rem;
     border: 1px solid var(--couleur-bordure);
+    transition: all 0.2s ease;
+}
+
+#loginForm section input:focus {
+    outline: none;
+    border-color: var(--bleu-principal);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 #loginForm footer {
@@ -123,4 +161,1357 @@ main {
     background-color: var(--bleu-fonce-principal);
     color: var(--couleur-text-blanc);
     font-weight: bold;
+}
+
+
+/*======================================================
+    3. STRUCTURE GLOBALE DU DASHBOARD
+======================================================*/
+
+
+
+#dashboard {
+    min-height: 100vh;
+    background: var(--fond-principal);
+    position: relative;
+    color: var(--bleu-fonce-principal);
+}
+
+/* --- SIDEBAR --- */
+#sidebar {
+    position: fixed;
+    min-height: 100vh;
+    max-width: 25rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bleu-fonce-principal);
+    color: var(--couleur-text-blanc);
+    display: grid;
+    grid-template-rows: 7rem 1fr 20rem;
+    z-index: 1999;
+    /* Transition pour la version desktop (si redimensionnement) */
+    transition: transform 0.2s ease;
+}
+
+#sidebarHeader {
+    padding: 2rem;
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.sidebarHeaderIcon {
+    color: var(--bleu-side-bar-icon);
+}
+
+#sidebarNav {
+    padding-top: 1.75rem;
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+#sidebarNav ul {
+    list-style: none;
+    line-height: 2.5rem;
+}
+
+.sidebarNavLinks {
+    padding: 0 1.75rem;
+    display: block;
+    color: var(--couleur-text-blanc);
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebarNavLi:hover {
+    background: var(--gris-secondaire);
+    cursor: pointer;
+}
+
+#sidebarFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.sidebarTitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--sidebar-info-bg-fst);
+    border-radius: 0.75rem;
+    width: 100%;
+}
+
+.sidebarTitleIcon {
+    font-size: 4rem;
+    color: #345cb8;
+    background-color: var(--couleur-text-blanc);
+    border-radius: 50%;
+}
+
+.sidebarFooterButton {
+    width: 100%;
+    color: var(--couleur-text-blanc);
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 0.75rem;
+}
+
+.sidebarFooterButtonProfil {
+    background: var(--sidebar-info-bg-snd);
+}
+
+.sidebarFooterButtonLogout {
+    background: var(--sidebar-info-bg-thd);
+}
+
+/* --- CONTENU PRINCIPAL & HEADER --- */
+#mainContent {
+    position: absolute;
+    min-height: calc(100vh - 7rem);
+    width: calc(100% - 25rem);
+    top: 7rem;
+    left: 25rem;
+    background-color: var(--fond-principal);
+    padding: 2rem 1.5rem;
+    overflow: scroll;
+}
+
+#mainContentHeader {
+    background-color: var(--fond-blanc);
+    position: fixed;
+    /* Maintient le header en haut */
+    top: 0;
+    right: 0;
+    left: 25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    /* IMPORTANT : Le header doit avoir la même largeur que #mainContent */
+    width: calc(100% - 25rem);
+    height: 7rem;
+    z-index: 100;
+}
+
+#mainContentHeaderNav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.mainContentHeaderNavLinks {
+    color: var(--couleur-text-secondaire);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.mainContentHeaderNavLinkNotification {
+    position: relative;
+}
+
+.mainContentHeaderNavLinkNotification::before {
+    content: "3";
+    position: absolute;
+    color: var(--couleur-text-blanc);
+    font-size: 1.2rem;
+    top: -15px;
+    left: -25%;
+    width: 30.72px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: var(--rouge-erreur);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+
+/*======================================================
+    4. GESTION DES PAGES (CONTENU PRINCIPAL)
+======================================================*/
+
+/* Règle de layout commune à toutes les sections */
+.dashboardMainContents {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+/* --- MÉCANISME :TARGET (GESTION DES PAGES) --- */
+
+/* 1. Masque toutes les sections qui ne sont pas la cible (sauf l'ID par défaut) */
+
+/* 2. Affiche la page par défaut (Tableau de Bord) au chargement */
+#tableauDeBord {
+    display: grid;
+}
+
+/* 3. Affiche la page ciblée (surcharge la règle de masquage) */
+.dashboardMainContents {
+    display: grid;
+}
+
+/* --- Styles de Base du Contenu --- */
+.dashboardHeaders {
+    grid-column: 1/-1;
+}
+
+.contentTableauPrincipal {
+    grid-column: 1/-1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Cartes de Renseignement */
+.cardRenseignement {
+    background: var(--couleur-text-blanc);
+    border-radius: 0.75rem;
+    flex: 1;
+    min-width: 230px;
+    display: flex;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+    transition: transform 0.2s ease;
+}
+
+.cardRenseignement:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cardRenseignementIcon {
+    flex: 0.75;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    color: var(--couleur-text-blanc);
+}
+
+.cardRenseignementIconStock {
+    background-color: var(--bleu-side-bar-icon);
+}
+
+.cardRenseignementIconWarning {
+    background-color: var(--orange-avertissement);
+}
+
+.cardRenseignementIconPrice {
+    background-color: var(--verts-succes);
+}
+
+.cardRenseignementIconDelivery {
+    background-color: var(--gris-secondaire);
+}
+
+.cardRenseignementIconChart {
+    background-color: var(--bleu-side-bar-icon);
+}
+
+.cardRenseignementIconShoppingChariot {
+    background-color: var(--verts-succes);
+}
+
+.cardRenseignementIconUsers {
+    background-color: var(--orange-avertissement);
+}
+
+.cardRenseignementIconPercent {
+    background-color: var(--rouge-erreur);
+}
+
+.cardRenseignementText {
+    flex: 1.25;
+}
+
+.faSolidCardIcon {
+    font-size: 2rem;
+}
+
+/* Styles de signalement (Analytics/Rapports) */
+.redError {
+    color: var(--rouge-erreur);
+    background-color: rgba(239, 68, 68, 0.2);
+}
+
+.orangeWarning {
+    color: var(--orange-avertissement);
+    background-color: rgba(214, 140, 51, 0.2);
+}
+
+.vertSuccess {
+    color: var(--verts-succes);
+    background-color: rgba(76, 166, 125, 0.2);
+}
+
+.signalementText {
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+}
+
+
+/*======================================================
+    5. TABLEAU DE BORD (Détails)
+======================================================*/
+
+/* Gestion des Stocks */
+#gestionStock {
+    grid-column: 1/-1;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--couleur-text-secondaire);
+    display: flex;
+    /* Utilisé pour aligner le contenu et le tableau */
+    flex-direction: column;
+}
+
+#gestionStockContent {
+    background-color: var(--couleur-text-blanc);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    padding: 2rem 1rem;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--gris-secondaire);
+}
+
+#productResearch {
+    width: 75%;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+}
+
+#productButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.productButtons {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+}
+
+.productButtonsAdd {
+    color: var(--couleur-text-blanc);
+    background-color: var(--bleu-side-bar-icon);
+}
+
+.productButtonsExport {
+    color: var(--bleu-fonce-principal);
+    border: 1px solid var(--gris-secondaire);
+}
+
+/* Tableau de Stocks */
+#tableauGestionStock {
+    border-collapse: collapse;
+}
+
+.tableRow {
+    border-bottom: 1px solid var(--gris-secondaire);
+    background-color: var(--couleur-text-blanc);
+}
+
+#tableauGestionStock th {
+    padding: 1rem;
+}
+
+#tableauGestionStock td {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.tableauGestionStockProduit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.tableHead {
+    background-color: transparent;
+}
+
+.tableauGestionStockProduit i {
+    font-size: 1.5rem;
+}
+
+.productid {
+    flex: 0.75;
+    width: 100%;
+}
+
+.tablebuttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.tablebuttons a {
+    color: var(--couleur-text-secondaire);
+}
+
+.tablebuttons a:hover {
+    color: #868f9b;
+}
+
+
+/*======================================================
+    6. ANALYTICS (Détails)
+======================================================*/
+
+/* Évolution des Ventes */
+#sellEvolution {
+    grid-column: 1/-1;
+    box-shadow: 1px 1px 1px 1px var(--couleur-text-secondaire);
+    display: flex;
+    gap: 1rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+#sellEvolutionChart {
+    flex: 1.5;
+}
+
+#CategorieRepartition {
+    flex: 0.5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#sellEvolutionChartHeader {
+    padding: 2rem;
+}
+
+#sellEvolutionChartHeaderSelect {
+    padding: 0.25rem;
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+}
+
+/* Graphique à barres */
+.simpleBarChart {
+    /* Variables locales - Mieux les mettre dans le :root si réutilisées */
+    --line-count: 20;
+    --line-color: var(--bleu-side-bar-icon);
+    --item-gap: 1rem;
+    --item-default-color: var(--couleur-text-secondaire);
+    --block-padding: 1rem;
+    height: 30rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+    gap: var(--item-gap);
+    align-items: end;
+    padding-inline: var(--item-gap);
+    padding-block: 1rem 3rem;
+    background-color: var(--couleur-text-blanc);
+    position: relative;
+    isolation: isolate;
+    padding-bottom: 6rem;
+}
+
+.simpleBarChartItemTooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--couleur-text-principale);
+    color: var(--couleur-text-blanc);
+    text-align: center;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    top: calc(50% - 30px);
+    transform: translateX(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.simpleBarChartItem {
+    background-color: var(--bleu-side-bar-icon);
+    border: 1px solid var(--bleu-side-bar-icon);
+    height: calc(0.75% * var(--val));
+    position: relative;
+    justify-content: flex-end;
+}
+
+.simpleBarChartItemLabel {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: -5rem;
+    text-align: center;
+}
+
+.simpleBarChartItemLabel span:nth-child(1) {
+    color: var(--couleur-text-secondaire);
+}
+
+.simpleBarChartItemLabel span:nth-child(2) {
+    color: var(--bleu-side-bar-icon);
+}
+
+#sellEvolutionFooterListe {
+    display: flex;
+    gap: 3rem;
+    padding: 1rem 2rem;
+    list-style: none;
+}
+
+.sellEvolutionFooterListeListe {
+    position: relative;
+}
+
+.sellEvolutionFooterListeListeBleu::before {
+    content: "\25CF";
+    position: absolute;
+    top: 0;
+    left: -1.2rem;
+    color: var(--bleu-side-bar-icon);
+}
+
+.sellEvolutionFooterListeListeVerte::before {
+    content: "\25CF";
+    position: absolute;
+    top: 0;
+    left: -1.2rem;
+    color: var(--verts-succes);
+}
+
+/* Répartition par Catégorie */
+#CategorieRepartitionHeader {
+    padding: 1rem;
+}
+
+#CategorieRepartitionContents {
+    list-style: none;
+    padding: 1rem;
+    background-color: var(--couleur-text-blanc);
+}
+
+.CategorieRepartitionContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.CategorieRepartitionContentTop {
+    display: flex;
+    justify-content: space-between;
+}
+
+.CategorieRepartitionContentBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.CategorieRepartitionContentBottomJauge {
+    width: 95%;
+    height: 1rem;
+    background-color: rgba(120, 127, 137, 0.2);
+    border-radius: 0.25rem;
+}
+
+.textColorBlue {
+    color: var(--bleu-side-bar-icon);
+    font-weight: 700;
+}
+
+/* Top Produits Table */
+#topProduits {
+    grid-column: 1/-1;
+    border-collapse: collapse;
+    text-align: left;
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+#topProduitTitle {
+    text-align: left;
+    padding: 1rem 0.5rem;
+    background-color: var(--couleur-text-blanc);
+}
+
+#topProduits td,
+th {
+    padding: 1rem;
+}
+
+#analyticsFilterSelct {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    width: 8rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+}
+
+.topProduitsTrContent {
+    border-bottom: 1px solid var(--couleur-bordure);
+    background-color: var(--couleur-text-blanc);
+}
+
+
+/*======================================================
+    7. COMMANDES (Détails)
+======================================================*/
+
+#commandeForm {
+    grid-column: 1/-1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.commandFormSelect {
+    font-size: 1.3rem;
+    padding: 0.25rem;
+    width: 12rem;
+    border-radius: 0.25rem;
+}
+
+#researchInput {
+    font-size: 1.3rem;
+    padding: 0.25rem;
+    width: 18rem;
+}
+
+#researchInputLabel {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    gap: 0.25rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    background-color: var(--bleu-side-bar-icon);
+    color: var(--couleur-text-blanc);
+}
+
+#researchInputLabel i {
+    margin-right: 0.25rem;
+}
+
+#commandChart {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.commandeCard {
+    background-color: var(--couleur-text-blanc);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.commandeCardHeader {
+    grid-column: span 5;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.commandeCardStatus {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.commandeCardInfo {
+    grid-column: span 6;
+}
+
+.commandeCardInfoLine {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--fond-principal);
+}
+
+.commandeCardInfoType {
+    display: flex;
+    flex-direction: column;
+}
+
+.commandeCardFooter {
+    grid-column: span 6;
+    padding: 1rem 0;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.commandeCardFooterButton {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--couleur-text-blanc);
+}
+
+.seeDetails {
+    background-color: var(--bleu-side-bar-icon);
+}
+
+.modify {
+    border: 1px solid var(--couleur-bordure);
+    color: var(--couleur-text-principale);
+    background: var(--fond-principal);
+}
+
+.validate {
+    background-color: #64748b4c;
+    color: var(--couleur-text-principale);
+}
+
+.send {
+    background-color: #34aeda;
+}
+
+.follow {
+    background-color: #34aeda;
+}
+
+.validateLivraison {
+    background-color: #64748b4c;
+    color: var(--couleur-text-principale);
+}
+
+
+/*======================================================
+    8. PARAMÈTRES (Détails)
+======================================================*/
+
+/* Style du sliding button (Switch) */
+.slidingButton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.slidingButtonWork {
+    width: 4rem;
+    height: 2rem;
+    background-color: rgb(201, 219, 219);
+    border-radius: 2.5rem;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.slidingButtonWork::before {
+    position: absolute;
+    content: "";
+    background-color: aliceblue;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    top: 0.05rem;
+    left: 0.1rem;
+    transition: 0.2s;
+}
+
+.slidingButtonButton {
+    display: none;
+}
+
+.slidingButtonButton:checked+.slidingButtonWork {
+    background-color: #7399d6;
+}
+
+.slidingButtonButton:checked+.slidingButtonWork::before {
+    transform: translateX(1.975rem);
+}
+
+/* Cartes de paramètres */
+.cardParam {
+    grid-column: 1/-1;
+    box-shadow: var(--shadow-md);
+    border-radius: 0.75rem;
+    border: 1px solid var(--couleur-bordure);
+    overflow: hidden;
+}
+
+.cardParam h4 {
+    padding: 2rem 1rem;
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.settings {
+    padding: 2rem;
+    background-color: var(--couleur-text-blanc);
+    flex-wrap: wrap;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.setting {
+    width: 400px;
+    display: flex;
+    gap: 3rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: rgba(164, 164, 164, 0.2);
+    padding: 2rem;
+}
+
+.systemSettings {
+    padding: 0.5rem 1rem;
+    color: var(--couleur-text-principale);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    border: 1px solid var(--couleur-bordure);
+}
+
+.systemSettingsBlue {
+    background-color: var(--bleu-side-bar-icon);
+    color: var(--couleur-text-blanc);
+}
+
+.systemSettingsGrey {
+    background-color: rgba(120, 127, 137, 0.2);
+}
+
+
+/*======================================================
+    9. RAPPORTS (Détails)
+======================================================*/
+
+#principalRapport {
+    grid-column: 1/-1;
+}
+
+#principalRapportForm {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    box-shadow: var(--shadow-md);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    padding: 1rem 1.5rem;
+    background-color: var(--couleur-text-blanc);
+}
+
+#principalRapportForm fieldset {
+    border: none;
+}
+
+.typeReportSelect {
+    padding: 0.5rem;
+    width: 10rem;
+    border-radius: 0.25rem;
+}
+
+.periodReportFormButton {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 12rem;
+    border-radius: 0.25rem;
+    color: var(--couleur-text-blanc);
+    background-color: var(--bleu-side-bar-icon);
+    text-decoration: none;
+    border: none;
+}
+
+.rapportCard {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rapportInfoCard {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 320px;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--couleur-text-blanc);
+    border-radius: 0.75rem;
+}
+
+.rapportInfoCardIcon {
+    width: 25%;
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    padding: 1rem;
+    color: var(--couleur-text-blanc);
+    background-color: var(--bleu-side-bar-icon);
+}
+
+.rapportInfoCardText {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rapportInfoCardButton {
+    padding: 0.25rem 0.5rem;
+    width: fit-content;
+    border-radius: 0.25rem;
+    color: var(--bleu-fonce-principal);
+    border: 1px solid var(--couleur-bordure);
+    text-decoration: none;
+}
+
+#rapportTable {
+    grid-column: 1/-1;
+    border-collapse: collapse;
+    background-color: var(--couleur-text-blanc);
+    box-shadow: var(--shadow-md);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+#rapportTable td,
+th {
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+#rapportTable tr {
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.rapportTableTitle {
+    padding: 2rem 1rem;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+
+/*======================================================
+    10. NOTIFICATIONS (Détails)
+======================================================*/
+
+#rechercheNotifications {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    padding: 2rem 1rem;
+    border-radius: 0.75rem;
+    background-color: var(--couleur-text-blanc);
+}
+
+#rechercheNotifications fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.rechercheNotificationButton {
+    padding: 0.5rem;
+    width: 10rem;
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 0.5rem;
+}
+
+.rechercheNotificationSubmit {
+    color: var(--couleur-text-blanc);
+    background-color: var(--bleu-side-bar-icon);
+    width: fit-content;
+    padding: 0.5rem 1rem;
+}
+
+#notificationCard {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.notificationContentSeing {
+    display: flex;
+    background-color: var(--couleur-text-blanc);
+    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.notificationContentSeing::before {
+    content: "";
+    border-left: 7px solid var(--rouge-erreur);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.notificationContentSeingBlue::before {
+    content: "";
+    border-left: 7px solid var(--bleu-side-bar-icon);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.notificationContentSeingWhite {
+    opacity: 0.7;
+}
+
+.notificationContentSeingWhite::before {
+    content: "";
+    border-left: 7px solid var(--couleur-text-blanc);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.notificationIcon {
+    width: fit-content;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    margin: 0 1rem;
+}
+
+
+/*======================================================
+    11. MEDIA QUERIES (RESPONSIVE)
+======================================================*/
+
+@media (max-width: 1024px) {
+
+    /* GESTION DE LA SIDEBAR EN MOBILE */
+    #sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+    }
+
+    #sidebar-overlay-label {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1998;
+
+        /* Masqué par défaut */
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* Activation de l'overlay et de la sidebar */
+    #sidebarToggle:checked~#sidebar-overlay-label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    #sidebarToggle:checked~#sidebar {
+        transform: translateX(0);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebarToggle {
+        position: fixed;
+        top: 2rem;
+        left: 0.5rem;
+        z-index: 2000;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    /* GESTION DU CONTENU PRINCIPAL */
+    #mainContent,
+    #mainContentHeader {
+        left: 0;
+        width: 100%;
+    }
+
+    #mainContentHeader {
+        padding-left: 3rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    /* Ajustements de formulaire/cartes */
+    #commandeForm fieldset {
+        width: 100%;
+    }
+
+    .commandFormSelect {
+        width: 100%;
+    }
+
+    #researchInputLabel {
+        width: fit-content;
+    }
+
+    .rapportCard {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .rapportInfoCard {
+        max-width: 100%;
+        box-shadow: 1px solid var(--shadow);
+    }
+
+    #rapportTable td,
+    th {
+        font-size: 0.9rem;
+    }
+
+
+    /* gestion page analytics */
+    #sellEvolution {
+        flex-direction: column;
+    }
+
+
+    /* gestion de la page rapport */
+    #principalRapportForm {
+        flex-direction: column;
+    }
+
+
+    /* Gestion de la page notifications */
+    .notificationContentSeing {
+        flex-direction: column;
+    }
+
+    #rechercheNotifications {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    #rechercheNotifications fieldset {
+        width: 100%;
+    }
+
+    .rechercheNotificationButton {
+        width: 100%;
+    }
+
+
+
+
+    .setting {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .systemSettings {
+        width: 100%;
+    }
+}
+
+
+
+
+/*======================================================
+    12. STRUCTURE GLOBALE DU PROFIL
+======================================================*/
+
+#profilCard {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.466);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: none;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#profilCard form {
+    background-color: var(--couleur-text-blanc);
+    max-width: 80vw;
+    width: 100%;
+    max-height: 80vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 0.75rem;
+    overflow: scroll;
+    position: relative;
+}
+
+#profilCardFormHeader {
+    padding: 1rem 3rem;
+    border-bottom: 1px solid var(--couleur-bordure);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#profilCard form fieldset {
+    padding: 0rem 3rem;
+    border: none;
+    width: 100%;
+}
+#profilCardFormFieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#profilCardFormFieldset a {
+    padding: 0.5rem;
+    text-decoration: none;
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 0.25rem;
+    color: var(--bleu-fonce-principal);
+}
+
+.faProfilIcon {
+    font-size: 7rem;
+}
+
+#profilCard form fieldset input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 0.25rem;
+    font-size: 1.1rem;
+}
+
+#profilCard form footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 3rem;
+    border-top: 1px solid var(--couleur-bordure);
+}
+
+.profilFormButton {
+    border: 1px solid var(--couleur-bordure);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+
+#close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--rouge-erreur);
+    text-align: center;
+    padding: 0.5rem;
+    font-weight: 900;
+    text-decoration: none;
+    color: var(--couleur-text-blanc);
+}
+
+
+#profilCard:target {
+    display: flex;
+    opacity: 1;
+}
+
+
+
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+
+
+#commmandModal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.466);
+    height: 100%;
+    width: 100%;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+#commmandModal form {
+    max-width: 70vw;
+    height: 80vh;
+    width: 100%;
+    background-color: var(--couleur-text-blanc);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    position: relative;
+    overflow-y: scroll;
+}
+
+#commmandModal form header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+#commmandModalFormDiv {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#commmandModalFormDiv fieldset {
+    border: none;
+}
+
+#commmandModal form footer {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    border-top: 1px solid var(--couleur-bordure);
+}
+
+#commmandModal form a {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    color: var(--bleu-fonce-principal);
+}
+
+#commmandModal tr {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.75rem;
+    background-color: var(--couleur-bordure);
+}
+
+#commmandModal:target {
+    display: flex;
 }

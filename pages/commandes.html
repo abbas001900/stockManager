@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../design/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div id="dashboard">
+        <input type="checkbox" id="sidebarToggle" hidden>
+        <label for="sidebarToggle" class="sidebarToggle"><i class="fa-solid fa-bars"></i></label>
+        <label for="sidebarToggle" id="sidebar-overlay-label"></label>
+        <aside id="sidebar">
+            <header id="sidebarHeader">
+                <h1><i class="fa-solid sidebarHeaderIcon fa-chart-line"></i> Dashboard</h1>
+            </header>
+            <nav id="sidebarNav">
+                <ul>
+                    <li class="sidebarNavLi">
+                        <a href="index.html" class="sidebarNavLinks"><i class="fa-solid fa-gauge-high"></i> Tableau
+                            de Bord</a>
+                    </li>
+                    <li class="sidebarNavLi">
+                        <a href="analytics.html" class="sidebarNavLinks"><i class="fa-solid fa-chart-line"></i>
+                            Analytics</a>
+                    </li>
+                    <li class="sidebarNavLi" style="background-color: var(--bleu-side-bar-icon);">
+                        <a href="#commandes" class="sidebarNavLinks"><i class="fa-solid fa-cart-shopping"></i>
+                            Commandes</a>
+                    </li>
+                    <li class="sidebarNavLi">
+                        <a href="parametres.html" class="sidebarNavLinks"><i class="fa-solid fa-gears"></i>
+                            Paramètres</a>
+                    </li>
+                    <li class="sidebarNavLi">
+                        <a href="rapports.html" class="sidebarNavLinks"><i class="fa-solid fa-chart-bar"></i>
+                            Rapports</a>
+                    </li>
+                    <li class="sidebarNavLi">
+                        <a href="notifications.html" class="sidebarNavLinks"><i class="fa-solid fa-bell"></i>
+                            Notifications</a>
+                    </li>
+                </ul>
+            </nav>
+            <footer id="sidebarFooter">
+                <div class="sidebarTitle">
+                    <i class="fa-solid sidebarTitleIcon fa-circle-user"></i>
+                    <div class="sidebarTitleText">
+                        <h4>Administrateur</h4>
+                        <p>Gestionnaire</p>
+                    </div>
+                </div>
+                <a href="#profilCard" class="sidebarFooterButton sidebarFooterButtonProfil text-center"><i
+                        class="fa-solid fa-circle-user"></i> Mon Profil</a>
+                <a href="../index.html" class="sidebarFooterButton sidebarFooterButtonLogout text-center"><i
+                        class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
+            </footer>
+        </aside>
+        <div id="mainContent">
+            <header id="mainContentHeader">
+                <h1>Gestion de Stocok - Produits Electroniques</h1>
+                <nav id="mainContentHeaderNav">
+                    <ul>
+                        <li><a href="#" class="mainContentHeaderNavLinks mainContentHeaderNavLinkNotification"><i
+                                    class="fa-solid fa-bell"></i></a></li>
+                        <li><a href="#" class="mainContentHeaderNavLinks mainContentHeaderNavLinkProfile"><i
+                                    class="fa-solid fa-circle-user"></i> Administrateur</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <section id="commandes" class="dashboardMainContents">
+                    <header class="dashboardHeaders">
+                        <div id="notificationHeaderEntete">
+                            <h1><i class="fa-solid fa-cart-shopping"></i> Gestion ds commandes</h1>
+                        </div>
+                        <p class="textGrisé">Suivi et gestion complète des commandes clients</p>
+                    </header>
+                    <div class="contentTableauPrincipal">
+                        <div class="cardRenseignement">
+                            <div class="cardRenseignementIcon" style="background-color: var(--orange-avertissement);"><i
+                                    class="fa-solid faSolidCardIcon fa-clock"></i>
+                            </div>
+                            <div class="cardRenseignementText">
+                                <h4>23</h4>
+                                <p>En attente</p>
+                            </div>
+                        </div>
+                        <div class="cardRenseignement">
+                            <div class="cardRenseignementIcon" style="background-color: var(--bleu-side-bar-icon);"><i
+                                    class="fa-solid faSolidCardIcon fa-gears"></i></div>
+                            <div class="cardRenseignementText">
+                                <h4>45</h4>
+                                <p>En cours</p>
+                            </div>
+                        </div>
+                        <div class="cardRenseignement">
+                            <div class="cardRenseignementIcon" style="background-color: #8A5CF5;"><i
+                                    class="fa-solid faSolidCardIcon fa-truck-fast"></i>
+                            </div>
+                            <div class="cardRenseignementText">
+                                <h4>67</h4>
+                                <p>Expédiées</p>
+                            </div>
+                        </div>
+                        <div class="cardRenseignement">
+                            <div class="cardRenseignementIcon" style="background-color: var(--verts-succes);"><i
+                                    class="fa-solid faSolidCardIcon fa-circle-check"></i>
+                            </div>
+                            <div class="cardRenseignementText">
+                                <h4>234</h4>
+                                <p>Livrées</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="#" id="commandeForm">
+                        <fieldset style="border: none;">
+                            <legend style="font-size: 1.2rem;">Statut :</legend>
+                            <select name="statut" id="statut" class="commandFormSelect">
+                                <option value="tous">Tous les statuts</option>
+                            </select>
+                        </fieldset>
+                        <fieldset style="border: none;">
+                            <legend style="font-size: 1.2rem;">Période :</legend>
+                            <select name="statut" id="statut" class="commandFormSelect">
+                                <option value="today">Aujourd'hui</option>
+                            </select>
+                        </fieldset>
+                        <fieldset style="border: none;">
+                            <label for="researchInput" id="researchInputLabel"><input type="text" name="research"
+                                    id="researchInput" placeholder="Rechercher une commande.."><i
+                                    class="fa-solid fa-magnifying-glass"></i></label>
+                        </fieldset>
+                    </form>
+                    <div id="commandChart">
+                        <article class="commandeCard">
+                            <header class="commandeCardHeader">
+                                <h3>Commande #CMD-2024-001</h3>
+                                <p>Client: Jean Dupont</p>
+                                <p>Date: 15 Jan 2024</p>
+                            </header>
+                            <section class="commandeCardStatus">
+                                <h6>En attente</h6>
+                                <span>€1,199.00</span>
+                            </section>
+                            <section class="commandeCardInfo">
+                                <div class="commandeCardInfoLine">
+                                    <span class="commandeCardInfoType">
+                                        <i class="fa-solid fa-mobile"></i>
+                                        <span><strong>iPhone 15 Pro</strong> 128GB - Bleu</span>
+                                    </span>
+                                    <span class="commandeCardInfoNumber">x1</span>
+                                    <span class="commandeCardInfoPrice">€1,199.00</span>
+                                    <span class="commandeCardInfoTotal">€1,199.00</span>
+                                </div>
+                            </section>
+                            <footer class="commandeCardFooter">
+                                <a href="#commmandModal" style="text-decoration: none;" class="commandeCardFooterButton seeDetails"><i class="fa-solid fa-eye"></i> Voir
+                                    les détails</a>
+                                <button class="commandeCardFooterButton modify"><i
+                                        class="fa-solid fa-pen-to-square"></i> Modifier</button>
+                                <button class="commandeCardFooterButton validate"><i class="fa-solid fa-check"></i>
+                                    Traiter</button>
+                            </footer>
+                        </article>
+                        <article class="commandeCard">
+                            <header class="commandeCardHeader">
+                                <h3>Commande #CMD-2024-002</h3>
+                                <p>Client: Marie Martin</p>
+                                <p>Date: 14 Jan 2024</p>
+                            </header>
+                            <section class="commandeCardStatus">
+                                <h6>En cours</h6>
+                                <span>€2,899.00</span>
+                            </section>
+                            <section class="commandeCardInfo">
+                                <div class="commandeCardInfoLine">
+                                    <span class="commandeCardInfoType">
+                                        <i class="fa-solid fa-laptop"></i>
+                                        <span><strong>MacBook Pro 16"</strong> M3 Pro - 512GB</span>
+                                    </span>
+                                    <span class="commandeCardInfoNumber">x1</span>
+                                    <span class="commandeCardInfoPrice">€2,899.00</span>
+                                </div>
+                            </section>
+                            <footer class="commandeCardFooter">
+                                <a href="#commmandModal" style="text-decoration: none;" class="commandeCardFooterButton seeDetails"><i class="fa-solid fa-eye"></i> Voir
+                                    les détails</a>
+                                <button class="commandeCardFooterButton modify"><i
+                                        class="fa-solid fa-pen-to-square"></i> Modifié</button>
+                                <button class="commandeCardFooterButton send"><i class="fa-solid fa-truck"></i>
+                                    Expdédier</button>
+                            </footer>
+                        </article>
+                        <article class="commandeCard">
+                            <header class="commandeCardHeader">
+                                <h3>Commande #CMD-2024-003</h3>
+                                <p>Client: Pierre Durand</p>
+                                <p>Date: 13 Jan 2024</p>
+                            </header>
+                            <section class="commandeCardStatus">
+                                <h6>Expédiée</h6>
+                                <span>€558.00</span>
+                            </section>
+                            <section class="commandeCardInfo">
+                                <div class="commandeCardInfoLine">
+                                    <span class="commandeCardInfoType">
+                                        <i class="fa-solid fa-headphones"></i>
+                                        <span><strong>Airpods Pro 2</strong> USB-C</span>
+                                    </span>
+                                    <span class="commandeCardInfoNumber">x2</span>
+                                    <span class="commandeCardInfoPrice">€558.00</span>
+                                </div>
+                            </section>
+                            <footer class="commandeCardFooter">
+                                <a href="#commmandModal" style="text-decoration: none;" class="commandeCardFooterButton seeDetails"><i class="fa-solid fa-eye"></i> Voir
+                                    les détails</a>
+                                <button class="commandeCardFooterButton follow"><i class="fa-solid fa-location-dot"></i>
+                                    Suivre</button>
+                                <button class="commandeCardFooterButton validateLivraison"><i
+                                        class="fa-solid fa-circle-check"></i> Marquer
+                                    livrée</button>
+                            </footer>
+                        </article>
+                    </div>
+
+                </section>
+            </main>
+            <footer></footer>
+        </div>
+        <section id="profilCard" href="#">
+            <form action="#">
+                <a href="#" id="close">X</a>
+                <header id="profilCardFormHeader">
+                    <h2><i class="fa-solid fa-circle-user"></i> Mon Profil</h2>
+                </header>
+                <fieldset id="profilCardFormFieldset">
+                    <i class="fa-solid faProfilIcon fa-circle-user"></i>
+                    <a href="#">Changer la photo</a>
+                </fieldset>
+                <fieldset>
+                    <legend>Nom :</legend>
+                    <input type="text" placeholder="Administrateur">
+                </fieldset>
+                <fieldset>
+                    <legend>Prénom :</legend>
+                    <input type="text" placeholder="Jean">
+                </fieldset>
+                <fieldset>
+                    <legend>Email :</legend>
+                    <input type="email" placeholder="admin@dashboard.com">
+                </fieldset>
+                <fieldset>
+                    <legend>Téléphone :</legend>
+                    <input type="text" placeholder="+33 6 12 34 56 78">
+                </fieldset>
+                <fieldset>
+                    <legend>Rôle :</legend>
+                    <input type="text" placeholder="Gestionnaire">
+                </fieldset>
+                <fieldset>
+                    <legend>Dernière connexion :</legend>
+                    <input type="text" placeholder="15 Janvier 2024 à 14:30">
+                </fieldset>
+                <footer>
+                    <button class="profilFormButton" type="submit"
+                        style="color: grey; background-color: #fff;">Fermer</button>
+                    <button class="profilFormButton" type="submit"
+                        style="color: var(--couleur-text-blanc); background-color: var(--bleu-side-bar-icon);">Sauvegarder</button>
+                </footer>
+            </form>
+        </section>
+
+
+
+        <section id="commmandModal">
+            <form action="#">
+                <a href="#"><i class="fa-solid fa-xmark"></i></a>
+                <header>
+                    <h2><i class="fa-solid fa-eye"></i> Détails de la commande</h2>
+                </header>
+                <div id="commmandModalFormDiv">
+                    <div>
+                        <h3>Informations Commande</h3>
+                        <hr style="color: var(--bleu-side-bar-icon);">
+                        <fieldset>
+                            <legend>Numéro commande :</legend>
+                            <h5>Commande #CMD-2024-001</h5>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Date de commande :</legend>
+                            <h5>15 Jan 2024</h5>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Statut :</legend>
+                            <h5>En attente</h5>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Total</legend>
+                            <h5>€1,199.00</h5>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <h3>Informations clients</h3>
+                        <hr style="color: var(--bleu-side-bar-icon);">
+                        <fieldset>
+                            <legend>Nom :</legend>
+                            <h5>Jean Dupont</h5>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Email :</legend>
+                            jean.dupont@email.com
+                        </fieldset>
+                        <fieldset>
+                            <legend>Téléphone :</legend>
+                            <h5>+33 6 12 34 56 78</h5>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Adresse</legend>
+                            <h5>123 Rue de la paix, 75001 Paris</h5>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <h3>Articles Commandés</h3>
+                        <hr style="color: var(--bleu-side-bar-icon);">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>: <span><strong><i class="fa-solid fa-mobile"></i> iPhone 15 Pro</strong> 128GB - Bleu</span></td>
+                                <td>: 1</td>
+                                <td style="text-align: center;">: €1,199.00</td>
+                                <td style="text-align: center;">: <span style="color: var(--bleu-side-bar-icon);">€1,199.00</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <footer>
+                    <button type="submit" style=" padding: 0.5rem; border-radius: 0.5rem; border: 1px solid var(--couleur-bordure); background-color: var(--couleur-text-blanc);">Fermer</button>
+                    <button type="submit" style=" padding: 0.5rem; border-radius: 0.5rem; border: none; background-color: var(--bleu-side-bar-icon); color: var(--couleur-text-blanc);">Imprimer</button>
+                </footer>
+            </form>
+        </section>
+    </div>
+</body>
+
+</html>

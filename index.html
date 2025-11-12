@@ -9,31 +9,35 @@
 </head>
 
 <body>
-    <main>
-        <form action="#" id="loginForm">
-            <header>
-                <h1>Connexion à StockManager Dashboard</h1>
-            </header>
-            <section>
-                <input type="text" name="identifiant" id="identifiant"
+    <div id="loginCard">
+        <main>
+            <form action="./pages/index.html" id="loginForm">
+                <header>
+                    <h1>Connexion à StockManager Dashboard</h1>
+                </header>
+                <section>
+                    <input type="text" name="identifiant" id="identifiant"
                         placeholder="Nom d'utilisateur ou email"><label for="identifiant"></label>
-                <input type="password" name="password" id="password"
-                        placeholder="Mot de passe"><label for="password"></label>
-                <label for="remember"><input type="checkbox" name="remember" id="remember">Se souvenir de moi</label>
+                    <input type="password" name="password" id="password" placeholder="Mot de passe"><label
+                        for="password"></label>
+                    <label for="remember"><input type="checkbox" name="remember" id="remember">Se souvenir de
+                        moi</label>
+                </section>
+                <footer>
+                    <button type="submit" onclick="">Se connecter</button>
+                    <p>Mot de passe oublié ? <a href="#">Réinitialiser</a></p>
+                    <p>Vous n'avez pas de compte ? <a href="signup.html">Inscrivez-vous</a></p>
+                </footer>
+            </form>
+            <section id="card">
+                <div id="logoDiv"><span id="logo">SM</span></div>
+                <h1>Bienvenue dans StockManager</h1>
+                <p>Gérer vos appareils électroniques vos entrées et sorties de stock facilement avec une interface
+                    claire et
+                    rapide</p>
             </section>
-            <footer>
-                <button type="submit" onclick="">Se connecter</button>
-                <p>Mot de passe oublié ? <a href="#">Réinitialiser</a></p>
-                <p>Vous n'avez pas de compte ? <a href="signup.html">Inscrivez-vous</a></p>
-            </footer>
-        </form>
-        <section id="card">
-            <div id="logoDiv"><span id="logo">SM</span></div>
-            <h1>Bienvenue dans StockManager</h1>
-            <p>Gérer vos appareils électroniques vos entrées et sorties de stock facilement avec une interface claire et
-                rapide</p>
-        </section>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>
