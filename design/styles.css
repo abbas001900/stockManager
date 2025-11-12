@@ -462,7 +462,7 @@ body {
     grid-column: 1/-1;
     border-radius: 0.75rem;
     overflow: hidden;
-    border: 1px solid var(--couleur-text-secondaire);
+    border: 1px solid var(--couleur-bordure);
     display: flex;
     /* Utilisé pour aligner le contenu et le tableau */
     flex-direction: column;
@@ -584,6 +584,7 @@ body {
     flex: 0.5;
     height: 100%;
     display: flex;
+    gap: 2rem;
     flex-direction: column;
     justify-content: center;
 }
@@ -734,11 +735,15 @@ body {
     overflow: hidden;
 }
 
-#topProduitTitle {
+#topProduitTitle  div {
+    background-color: var(--couleur-text-blanc);
+    display: flex;
+    justify-content: space-between;
     text-align: left;
     padding: 1rem 0.5rem;
-    background-color: var(--couleur-text-blanc);
+    width: 100%;
 }
+
 
 #topProduits td,
 th {
@@ -815,6 +820,10 @@ th {
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
 }
+.commandeCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
 
 .commandeCardHeader {
     grid-column: span 5;
@@ -828,7 +837,7 @@ th {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    text-align: center;
+    text-align: end;
 }
 
 .commandeCardInfo {
@@ -862,6 +871,7 @@ th {
     border-radius: 0.5rem;
     font-size: 1.2rem;
     color: var(--couleur-text-blanc);
+    border: none;
 }
 
 .seeDetails {
@@ -1043,7 +1053,13 @@ th {
     width: 100%;
     padding: 1rem;
     background-color: var(--couleur-text-blanc);
+    box-shadow: var(--shadow);
     border-radius: 0.75rem;
+    transition: all 0.3s ease;
+}
+.rapportInfoCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .rapportInfoCardIcon {
@@ -1193,7 +1209,19 @@ th {
     border-radius: 50%;
     margin: 0 1rem;
 }
+.notificationContentBodyButtons {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+}
 
+
+.notificationContentBodyButtons button {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--couleur-bordure);
+    cursor: pointer;
+}
 
 /*======================================================
     11. MEDIA QUERIES (RESPONSIVE)
